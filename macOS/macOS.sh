@@ -1,5 +1,7 @@
 #!/bin/bash
 
+### credits: thanks @mathiasbynens
+
 # Ask for the administrator password upfront
 sudo -v
 
