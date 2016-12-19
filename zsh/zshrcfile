@@ -7,8 +7,13 @@ source /usr/local/Cellar/antigen/1.2.1/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle git
+antigen bundle sublime
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen bundle frmendes/geometry
 
 antigen apply
+
+#Manage java ativate versions
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
