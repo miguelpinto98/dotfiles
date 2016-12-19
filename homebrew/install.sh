@@ -11,8 +11,11 @@ then
 fi
 
 apps=(
+	ant
 	antigen
 	node
+	jenv
+	openssl
 )
 
 #
