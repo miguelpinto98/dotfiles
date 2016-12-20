@@ -5,16 +5,16 @@
   [
     "*.svn",
     "*.git",
-		"*.hg",
-		"*._*",
-		"*.DS_Store"
-	],
-	"folder_exclude_patterns":
-	[
-		".sass-cache",
-		".svn",
-		".git"
-	],
+    "*.hg",
+    "*._*",
+    "*.DS_Store"
+  ]
+  ,"folder_exclude_patterns":
+  [
+    ".sass-cache",
+    ".svn",
+    ".git"
+  ],
   "font_options": "subpixel_antialias",
   "font_size": 12,
   "highlight_line": true,
@@ -35,7 +35,7 @@
   "tab_size": 2,
   "theme": "predawn-DEV.sublime-theme",
   "translate_tabs_to_spaces": true,
-	"ensure_newline_at_eof_on_save": true,
+  "ensure_newline_at_eof_on_save": true,
   "trim_trailing_white_space_on_save": true,
   "word_wrap": true
 }
