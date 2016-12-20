@@ -3,8 +3,8 @@
   "color_scheme": "Packages/Predawn/predawn.tmTheme",
   "file_exclude_patterns":
   [
-		"*.svn",
-		"*.git",
+    "*.svn",
+    "*.git",
 		"*.hg",
 		"*._*",
 		"*.DS_Store"
@@ -20,7 +20,7 @@
   "highlight_line": true,
   "ignored_packages":
   [
-    "Vintage"
+	  "Vintage"
   ],
   "line_padding_top": 0.5,
   "predawn_findreplace_small": true,
@@ -29,12 +29,13 @@
   "predawn_tabs_small": true,
   "rulers":
   [
-    80
+	  80
   ],
   "scroll_past_end": true,
   "tab_size": 2,
   "theme": "predawn-DEV.sublime-theme",
   "translate_tabs_to_spaces": true,
+	"ensure_newline_at_eof_on_save": true,
   "trim_trailing_white_space_on_save": true,
   "word_wrap": true
 }
