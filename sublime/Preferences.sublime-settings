@@ -3,10 +3,18 @@
   "color_scheme": "Packages/Predawn/predawn.tmTheme",
   "file_exclude_patterns":
   [
-  ],
-  "folder_exclude_patterns":
-  [
-  ],
+		"*.svn",
+		"*.git",
+		"*.hg",
+		"*._*",
+		"*.DS_Store"
+	],
+	"folder_exclude_patterns":
+	[
+		".sass-cache",
+		".svn",
+		".git"
+	],
   "font_options": "subpixel_antialias",
   "font_size": 12,
   "highlight_line": true,
