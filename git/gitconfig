@@ -1,0 +1,19 @@
+[user]
+	name = miguelpinto98
+	email = mcpinto98@gmail.com
+[core]
+	excludesfile = /Users/miguelpinto/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[alias]
+  c = checkout
+  f = fetch
+  pl = pull origin
+  ps = push origin
+  st = status
+  cm = commit -m
