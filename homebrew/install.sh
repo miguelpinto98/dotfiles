@@ -16,6 +16,7 @@ apps=(
 	node
 	jenv
 	openssl
+        wget
 )
 
 #
