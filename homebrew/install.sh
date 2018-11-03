@@ -10,18 +10,37 @@ then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-apps=(
+brew cask
+brew cask install java
+
+dependecies=(
 	ant
 	antigen
-	node
+	autojump
+	bash-completion
+	diff-so-fancy
+	git
 	jenv
+	links
+	nmap
 	openssl
 	rbenv
-        wget
+	tree
+	wifi-password
+  wget
+	zsh
 )
+brew install "${dependecies[@]}"
 
-#
-brew install "${apps[@]}"
-
-
-### CREDITS @nicksp
+plugins=(
+	qlcolorcode
+	qlstephen
+	qlmarkdown
+	quicklook-json
+	betterzip
+	qlimagesize
+	suspicious-package
+	qlvideo
+	provisionql
+)
+brew cask install "${plugins[@]}"

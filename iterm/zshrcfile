@@ -1,0 +1,32 @@
+source /usr/local/Cellar/antigen/2.2.3/share/antigen/antigen.zsh
+antigen use oh-my-zsh
+
+antigen bundle autojump
+antigen bundle jenv
+antigen bundle git
+antigen bundle lukechilds/zsh-nvm
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# MANAGE GEOMETRY STYLE
+GEOMETRY_COLOR_GIT_DIRTY=9
+GEOMETRY_COLOR_GIT_BRANCH=6
+GEOMETRY_COLOR_EXIT_VALUE=9
+GEOMETRY_COLOR_DIR=242
+GEOMETRY_COLOR_PROMPT=2
+GEOMETRY_SYMBOL_EXIT_VALUE="⇝"
+GEOMETRY_SYMBOL_PROMPT="⇝"
+GEOMETRY_PROMPT_PATH="%2~"
+GEOMETRY_SYMBOL_GIT_DIRTY="⑇"
+GEOMETRY_SYMBOL_GIT_CLEAN="⑉"
+GEOMETRY_SYMBOL_GIT_CONFLICTS_SOLVED="⑉"
+GEOMETRY_SYMBOL_GIT_CONFLICTS_UNSOLVED="⑆"
+GEOMETRY_SYMBOL_GIT_STASHES="⑈"
+GEOMETRY_COLOR_GIT_STASHES=5
+GEOMETRY_PROMPT_PLUGINS_PRIMARY=(path)
+GEOMETRY_PROMPT_PLUGINS_SECONDARY=(git)
+PROMPT_GEOMETRY_GIT_SHOW_STASHES=true
+PROMPT_GEOMETRY_GIT_CONFLICTS=true
+antigen theme geometry-zsh/geometry
+
+antigen apply

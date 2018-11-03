@@ -3,17 +3,50 @@
 	email = mcpinto98@gmail.com
 [core]
 	excludesfile = /Users/miguelpinto/.gitignore_global
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[color]
+	ui = auto
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
 [alias]
-  c = checkout
-  f = fetch
-  pl = pull origin
-  ps = push origin
-  st = status
-  cm = commit -m
+	b = branch
+	bdd = branch -D
+	c = checkout
+	cl = clone
+	cm = commit -m
+	d = diff
+	f = fetch
+	m = merge
+	o = checkout
+	ob = checkout -b
+	pl = pull origin
+	ps = push origin
+	rb = rebase
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbi = rebase --interactive
+	rbs = rebase --skip
+	re = reset
+	rh = reset HEAD
+	reh = reset --hard
+	sa = stash apply
+	sc = stash clear
+	sd = stash drop
+	sl = stash list
+	sp = stash pop
+	ss = stash save
+	st = status
+	t = tag
+	td = tag -d
