@@ -35,6 +35,3 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 [[ -s "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
-
-export USER_EMAIL=miguel.pinto
-export USER_AUTH=bWlndWVsLnBpbnRvOkRqeiYyMmohdXohMlBiI3c=

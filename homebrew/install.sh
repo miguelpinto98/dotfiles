@@ -31,18 +31,3 @@ dependecies=(
 	zsh-completions
 )
 brew install "${dependecies[@]}"
-
-brew tap caskroom/cask
-
-brew cask audit
-
-plugins=(
-	qlcolorcode
-	qlstephen
-	qlmarkdown
-	quicklook-json
-	quicklook-csv
-	qlimagesize
-	qlvideo
-)
-#brew cask install "${plugins[@]}"
