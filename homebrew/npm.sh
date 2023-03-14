@@ -1,11 +1,7 @@
 #!/bin/bash
 
-nvm install 14.15.3
-
 libraries=(
-	@angular/cli
-	@sentry/cli
-	http-server
+	npm-check-updates
 	svgo
 )
 npm install -g "${libraries[@]}"

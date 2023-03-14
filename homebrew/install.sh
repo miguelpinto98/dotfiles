@@ -7,7 +7,7 @@ sudo -v
 if test ! $(which brew)
 then
   echo "Installing Homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 dependecies=(
@@ -16,18 +16,24 @@ dependecies=(
 	antigen
 	autojump
 	bash-completion
+	bat
+	cask
+	docker
 	diff-so-fancy
 	git
-	jenv
+	imagemagick
 	links
-	ngrok
+	mas
 	nmap
 	nvm
 	openssl
-	rbenv
+	tldr
 	tree
+	the-unarchiver
 	wget
 	zsh
 	zsh-completions
+	zsh-syntax-highlighting
+	zsh-autosuggestions
 )
 brew install "${dependecies[@]}"

@@ -4,6 +4,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = vim
 [rerere]
 	enabled = 1
 [color]
@@ -25,11 +26,13 @@
 [alias]
 	b = branch
 	bdd = branch -D
+	bm = branch -m
 	c = checkout
 	cl = clone
 	cm = commit -m
 	cd = commit --amend
 	cdn = commit --amend --no-edit
+	cp = cherry-pick
 	d = diff
 	f = fetch
 	m = merge
