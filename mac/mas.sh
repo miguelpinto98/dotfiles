@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # 1Password for safari
 mas install 1569813296
 

@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Ask for the administrator password upfront
-sudo -v
-
 # Check for Homebrew and install it if missing
 if test ! $(which brew)
 then
@@ -13,7 +10,6 @@ fi
 dependecies=(
 	ack
 	ant
-	antigen
 	autojump
 	bash-completion
 	bat

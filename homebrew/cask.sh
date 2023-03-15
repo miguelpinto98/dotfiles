@@ -1,7 +1,5 @@
 #!/bin/bash
 
-brew audit --cask
-
 plugins=(
 	1password
 	alt-tab
