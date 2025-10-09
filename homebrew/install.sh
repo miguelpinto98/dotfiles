@@ -11,23 +11,31 @@ dependecies=(
 	ack
 	ant
 	autojump
-	bash-completion
 	bat
-	cask
-	docker
+	cairo
 	diff-so-fancy
+	eza
+	fd
+	fzf
 	git
+	gsed
+	httpie
 	imagemagick
+	jq
 	links
 	mas
 	nmap
 	nvm
 	openssl
+	pango
+	pkg-config
+	pnpm@8
+	ripgrep
+	svgo
 	tldr
 	tree
-	the-unarchiver
 	wget
-	zsh
+	yq
 	zsh-completions
 	zsh-syntax-highlighting
 	zsh-autosuggestions

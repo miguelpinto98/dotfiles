@@ -7,24 +7,38 @@ export ZSH="$HOME/.oh-my-zsh"
 # zsh plugins
 plugins=(
   git
+  docker
+  npm
+  pnpm
+  history-substring-search
+  colored-man-pages
+  extract
   zsh-completions
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
 
-# load zsh-completions
-autoload -U compinit && compinit
-
 # load autojump
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+source /opt/homebrew/etc/profile.d/autojump.sh
 
-# load bash-completion
-[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+# load zsh-syntax-highlighting
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# load zsh-autosuggestions
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# load zsh-completions
+autoload -U compinit; compinit
 
 # use nvm
 export NVM_DIR="$HOME/.nvm"
 source /opt/homebrew/opt/nvm/nvm.sh
 source /opt/homebrew/opt/nvm/etc/bash_completion.d/nvm
 
+# load aliases
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+fi
 
+# start starship
 eval "$(starship init zsh)"

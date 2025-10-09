@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cp gitconfig ~/.gitconfig
-cp gitignore_global ~/.gitignore_global
+cp -R gitconfig ~/.gitconfig
+cp -R gitignore_global ~/.gitignore_global

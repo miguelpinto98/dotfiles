@@ -3,29 +3,36 @@
 plugins=(
 	1password
 	alt-tab
+	appcleaner
+	arc
+	brave-browser
 	calibre
-	dash
+	chatgpt
+	devtoys
+	docker
 	figma
+	font-hack-nerd-font
+	font-jetbrains-mono-nerd-font
 	imageoptim
+	insomnia
 	iterm2
-	qlcolorcode
-	qlstephen
-	qlmarkdown
-	quicklook-json
-	quicklook-csv
-	qlimagesize
-	qlvideo
-	maccy
+	joplin
 	ngrok
+	nordvpn
+	openvpn-connect
+	raycast
 	rectangle
+	slack
 	spotify
+	stremio
 	sublime-text
+	synology-drive
 	stats
 	the-unarchiver
 	transmission
-	tunnelblick
 	visual-studio-code
 	vlc
+	whatsapp
 	zoom
 )
-brew install --cask "${plugins[@]}"
+/opt/homebrew/bin/brew install --cask "${plugins[@]}"

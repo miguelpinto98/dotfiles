@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Modern CLI replacements
+alias cat='bat'
+alias ls='eza --icons'
+alias ll='eza -la --icons --git'
+alias la='eza -a --icons'
+alias lt='eza --tree --icons'
+alias find='fd'
+alias grep='rg'
+
+# Quick navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ~='cd ~'
+
+# Package managers
+alias pn='pnpm'
+alias px='pnpm exec'
+alias pd='pnpm dev'
+alias pb='pnpm build'
+alias pt='pnpm test'
+
+# Docker shortcuts
+alias dc='docker compose'
+alias dcu='docker compose up -d'
+alias dcd='docker compose down'
+alias dcl='docker compose logs -f'
+
+# Utilities
+alias serve='python3 -m http.server'
+alias myip='curl ifconfig.me'
+alias ports='lsof -i -P | grep LISTEN'
+alias cleanup='find . -type f -name "*.DS_Store" -delete'

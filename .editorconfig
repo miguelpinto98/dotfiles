@@ -1,0 +1,65 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# Top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Tab indentation (4 spaces)
+indent_style = tab
+indent_size = 4
+tab_width = 4
+
+# Matches multiple files with brace expansion notation
+[*.{js,jsx,ts,tsx,json,css,scss,sass,less,html,xml,svg,vue}]
+indent_style = tab
+indent_size = 4
+
+# YAML files (spaces required)
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+# Markdown files
+[*.{md,mdx}]
+trim_trailing_whitespace = false
+indent_style = space
+indent_size = 2
+
+# Package files
+[{package.json,package-lock.json,pnpm-lock.yaml,yarn.lock}]
+indent_style = space
+indent_size = 2
+
+# Makefiles
+[Makefile]
+indent_style = tab
+
+# Shell scripts
+[*.{sh,bash,zsh}]
+indent_style = tab
+indent_size = 4
+
+# Python
+[*.py]
+indent_style = space
+indent_size = 4
+
+# Ruby
+[*.rb]
+indent_style = space
+indent_size = 2
+
+# Go
+[*.go]
+indent_style = tab
+
+# Ignore files
+[{.gitignore,.dockerignore,.eslintignore,.prettierignore}]
+indent_style = space
+indent_size = 2

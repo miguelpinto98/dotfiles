@@ -1,0 +1,67 @@
+################
+# GIT SERVICES #
+################
+
+# Use 1Password SSH agent for all connections
+# This securely manages your SSH keys without storing private keys on disk
+Host *
+  IdentityAgent "~/.1password/agent.sock"
+  
+# Optional: Global SSH settings (uncomment if needed)
+# Host *
+#   AddKeysToAgent yes
+#   UseKeychain yes
+#   ServerAliveInterval 60
+#   ServerAliveCountMax 120
+#   TCPKeepAlive yes
+#   Compression yes
+
+## GitHub (shorthand: gh)
+Host gh
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/gh_rsa
+
+## GitHub (full domain also works)
+Host github.com
+  User git
+  IdentityFile ~/.ssh/gh_rsa
+
+## Bitbucket (shorthand: bb)
+Host bb
+  HostName bitbucket.org
+  User git
+  IdentityFile ~/.ssh/bb_rsa
+  IdentitiesOnly yes
+
+## GitLab (shorthand: gl)
+Host gl
+  HostName gitlab.com
+  User git
+  IdentityFile ~/.ssh/gl_rsa
+
+#####################
+# WORK/CUSTOM HOSTS #
+#####################
+
+## Example: Work Bitbucket with different key
+# Host work-bb
+#   HostName bitbucket.org
+#   User git
+#   IdentityFile ~/.ssh/bb_work_rsa
+#   IdentitiesOnly yes
+
+## Example: Personal server
+# Host myserver
+#   HostName your-server.com
+#   User your-username
+#   Port 22
+#   IdentityFile ~/.ssh/id_ed25519
+#   ForwardAgent yes
+
+## Example: Server with jump host/bastion
+# Host internal-server
+#   HostName internal.company.com
+#   User your-username
+#   IdentityFile ~/.ssh/work_key
+#   ProxyJump bastion.company.com

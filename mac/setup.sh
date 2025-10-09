@@ -6,7 +6,27 @@
 # show Library folder
 chflags nohidden ~/Library
 
-# Save to disk (not to iCloud) by default
+### System
+##########
+
+# Disable automatic capitalization
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+
+# Disable smart quotes
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# Disable smart dashes
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# Disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Enable tap to click for trackpad
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Faster keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Disable the “Are you sure you want to open this application?” dialog
@@ -32,12 +52,18 @@ defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 # Show item info near icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist 2>/dev/null || true
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist 2>/dev/null || true
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist 2>/dev/null || true
 
 # Show item info to the right of the icons on the desktop
-/usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom false" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom false" ~/Library/Preferences/com.apple.finder.plist 2>/dev/null || true
+
+# Show hidden files by default
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# Avoid creating .DS_Store files on USB drives
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 # Keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
@@ -105,7 +131,30 @@ defaults write com.apple.dock "orientation" -string "right"
 # Do not display recent apps in the Dock
 defaults write com.apple.dock "show-recents" -bool "false"
 
-# !
+# Set the icon size of Dock items
+defaults write com.apple.dock tilesize -int 48
+
+# Minimize windows into their application's icon
+defaults write com.apple.dock minimize-to-application -bool true
+
+# Keep Dock visible (disable auto-hide)
+defaults write com.apple.dock autohide -bool false
+
+### Screenshot
+#############
+
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
+
+# Disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+
+### Apply Changes
+#################
+
+echo "Applying changes..."
 killall Finder
 killall Dock
-killall Safari
+killall SystemUIServer
+
+echo "Done! Some changes may require a logout/restart to take effect."

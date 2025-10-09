@@ -1,0 +1,18 @@
+# Ignore private keys
+id_*
+!id_*.pub
+
+# Ignore known_hosts (contains server fingerprints)
+known_hosts
+known_hosts.old
+
+# Ignore any backup files
+*.backup
+*.bak
+
+# Ignore actual config if someone puts it here
+config
+!config.template
+
+# Ignore authorized_keys
+authorized_keys

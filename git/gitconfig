@@ -1,12 +1,34 @@
 [user]
 	name = miguel.pinto
 	email = miguel.pinto@kelvininc.com
+	# Uncomment to sign commits with GPG
+	# signingkey = YOUR_GPG_KEY_ID
+
 [core]
 	excludesfile = ~/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	editor = vim
+	# Use VS Code as editor (uncomment if preferred)
+	# editor = code --wait
+	# Auto-correct typos (waits 2 seconds before executing)
+	autocorrect = 20
+	# Treat spaces before tabs and trailing whitespace as errors
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+	# Speed up commands involving untracked files
+	untrackedCache = true
+	# Use fsmonitor for better performance on large repos
+	fsmonitor = true
+
+[commit]
+	# Show diff when writing commit message
+	verbose = true
+	# Uncomment to sign all commits with GPG
+	# gpgsign = true
+
 [rerere]
 	enabled = 1
+	# Auto-stage files resolved by rerere
+	autoupdate = true
 [color]
 	ui = auto
 [color "branch"]
@@ -23,29 +45,99 @@
 	added = green bold
 	changed = yellow bold
 	untracked = red bold
+
+[push]
+	# Push current branch to remote branch of same name
+	default = current
+	# Push tags automatically with commits
+	followTags = true
+	# Refuse to push if upstream branch name is different
+	autoSetupRemote = true
+
+[pull]
+	# Rebase instead of merge when pulling
+	rebase = true
+	# Auto-stash before rebase
+	autoStash = true
+
+[fetch]
+	# Automatically prune deleted remote branches
+	prune = true
+	# Also prune tags
+	pruneTags = true
+
+[rebase]
+	# Auto-squash commits marked with 'fixup!' or 'squash!'
+	autoSquash = true
+	# Auto-stash changes before rebasing
+	autoStash = true
+
+[merge]
+	# Show common ancestor in merge conflicts
+	conflictstyle = zdiff3
+	# Use better merge algorithm
+	algorithm = histogram
+
+[diff]
+	# Use better diff algorithm
+	algorithm = histogram
+	# Detect renames and copies
+	renames = copies
+	# Use mnemonic prefixes (index, work tree, commit, object)
+	mnemonicPrefix = true
+	# Show submodule changes
+	submodule = log
+	# Color moved lines differently
+	colorMoved = default
+
+[status]
+	# Show submodule summary
+	submoduleSummary = true
+	# Show stash count
+	showStash = true
+
+[help]
+	# Auto-correct and execute mistyped commands after 2 seconds
+	autocorrect = 20
+
+[branch]
+	# Show upstream tracking info
+	sort = -committerdate
+
+[tag]
+	# Sort tags by version
+	sort = version:refname
+
+[log]
+	# Show branch names in log
+	decorate = short
+	# Follow file renames
+	follow = true
+
 [alias]
 	b = branch
 	bdd = branch -D
 	bm = branch -m
 	c = checkout
+	cb = checkout -b
 	cl = clone
 	cm = commit -m
 	cd = commit --amend
-	cdn = commit --amend --no-edit
+	oops = commit --amend --no-edit
 	cp = cherry-pick
 	d = diff
+	dog = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"
 	f = fetch
 	m = merge
-	o = checkout
-	ob = checkout -b
 	pl = pull
 	ps = push
 	psf = push -f
 	rb = rebase
 	rba = rebase --abort
 	rbc = rebase --continue
-	rbi = rebase --interactive
 	rbs = rebase --skip
+	rbi = "!r() { git rebase -i HEAD~$1; }; r"
 	re = reset
 	rh = reset HEAD
 	reh = reset --hard
@@ -56,5 +148,53 @@
 	sp = stash pop
 	ss = stash save
 	st = status
+	sts = status -sb
 	t = tag
 	td = tag -d
+	
+	# Enhanced log views
+	ll = log --oneline --decorate
+	lg = log --oneline --decorate --graph --all
+	last = log -1 HEAD --stat
+	hist = log --pretty=format:'%C(yellow)%h%C(reset) %C(green)%ad%C(reset) | %s%C(bold red)%d%C(reset) %C(blue)[%an]%C(reset)' --graph --date=short
+	today = log --since='midnight' --author='miguel.pinto' --oneline
+	
+	# Workflow shortcuts
+	sw = switch
+	swc = switch -c
+	co = checkout
+	uncommit = reset --soft HEAD^
+	unstage = reset HEAD --
+	discard = checkout --
+	amend = commit --amend --reuse-message=HEAD
+	
+	# Branch management
+	branches = branch -a
+	recent = branch --sort=-committerdate --format='%(committerdate:relative)%09%(refname:short)'
+	gone = "!git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D"
+	
+	# Diff shortcuts
+	dc = diff --cached
+	ds = diff --staged
+	dw = diff --word-diff
+	
+	# Stash shortcuts
+	sshow = "!f() { git stash show -p stash@{${1:-0}}; }; f"
+	
+	# Info and stats
+	aliases = config --get-regexp alias
+	contributors = shortlog --summary --numbered --email
+	ranked = shortlog --summary --numbered --no-merges
+	
+	# Undo/Fix shortcuts
+	undo = reset HEAD~1 --mixed
+	wipe = "!git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard"
+	
+	# Find commits
+	find = "!git log --pretty=format:'%C(yellow)%h %Cblue%ad %Creset%s' --decorate --date=short --all -S"
+	findmsg = "!git log --all --grep"
+	
+	# Working with remotes
+	upstream = "!git remote -v | grep upstream"
+	publish = "!git push -u origin $(git branch --show-current)"
+	unpublish = "!git push origin --delete $(git branch --show-current)"

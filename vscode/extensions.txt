@@ -1,0 +1,19 @@
+# Essential - Core Development
+esbenp.prettier-vscode
+dbaeumer.vscode-eslint
+
+# Git
+eamodio.gitlens
+
+# Themes & Icons
+pkief.material-icon-theme
+
+# Styling
+stylelint.vscode-stylelint
+
+# Code Quality
+usernamehw.errorlens
+
+# AI
+github.copilot
+github.copilot-chat
