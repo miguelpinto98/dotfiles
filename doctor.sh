@@ -130,6 +130,25 @@ check_command "nvm" "NVM (Node Version Manager)"
 check_command "node" "Node.js"
 check_command "npm" "npm"
 check_command "pnpm" "pnpm"
+if check_command "python3.11" "Python 3.11 (Node build toolchain)" "true"; then
+    if python3.11 -c "import distutils.command.build" >/dev/null 2>&1; then
+        echo -e "${GREEN}  ✓${NC} distutils modules available"
+    else
+        echo -e "${YELLOW}  ⚠${NC} distutils modules missing (install setuptools)"
+        ((WARNINGS++))
+    fi
+fi
+
+if command -v npm &> /dev/null; then
+    NPM_PY=$(npm config get python 2>/dev/null | tr -d '\n')
+    if [[ -z "$NPM_PY" || "$NPM_PY" == "undefined" ]]; then
+        echo -e "${YELLOW}⚠${NC} npm python binding not set (run npm config set python <path>)"
+        ((WARNINGS++))
+    else
+        echo -e "${GREEN}✓${NC} npm python binary: ${BLUE}$NPM_PY${NC}"
+        ((PASSED++))
+    fi
+fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

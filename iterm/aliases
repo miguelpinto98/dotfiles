@@ -29,6 +29,7 @@ alias dcd='docker compose down'
 alias dcl='docker compose logs -f'
 
 # Utilities
+alias g='git'
 alias serve='python3 -m http.server'
 alias myip='curl ifconfig.me'
 alias ports='lsof -i -P | grep LISTEN'

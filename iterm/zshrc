@@ -35,6 +35,31 @@ export NVM_DIR="$HOME/.nvm"
 source /opt/homebrew/opt/nvm/nvm.sh
 source /opt/homebrew/opt/nvm/etc/bash_completion.d/nvm
 
+# set node version automatically
+autoload -U add-zsh-hook
+
+load-nvmrc() {
+  local nvmrc_path
+  nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 # load aliases
 if [ -f ~/.aliases ]; then
     source ~/.aliases
@@ -42,3 +67,9 @@ fi
 
 # start starship
 eval "$(starship init zsh)"
+
+# Prefer Homebrew's Python 3.11 for Node native module builds
+export PATH="/opt/homebrew/opt/python@3.11/bin:$PATH"
+export PYTHON="/opt/homebrew/opt/python@3.11/bin/python3.11"
+export npm_config_python="/opt/homebrew/opt/python@3.11/bin/python3.11"
+export NODE_GYP_FORCE_PYTHON="/opt/homebrew/opt/python@3.11/bin/python3.11"

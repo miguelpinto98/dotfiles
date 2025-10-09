@@ -189,6 +189,31 @@ else
 fi
 
 ###############################################################################
+# 2b. Setup Python Toolchain for Node Builds
+###############################################################################
+
+print_section "Step 2b: Setting up Python for Node native modules"
+
+if prompt_user "Do you want to configure Python 3.11 for Node build tooling?"; then
+    cd "$DOTFILES_DIR/python"
+
+    if [[ -f "setup.sh" ]]; then
+        bash setup.sh
+        if [[ $? -eq 0 ]]; then
+            print_success "Python toolchain configured successfully"
+        else
+            print_warning "Python setup completed with warnings"
+        fi
+    else
+        print_error "setup.sh not found in python directory"
+    fi
+
+    cd "$DOTFILES_DIR"
+else
+    print_warning "Skipping Python toolchain configuration"
+fi
+
+###############################################################################
 # 3. Install Homebrew Casks
 ###############################################################################
 

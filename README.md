@@ -16,6 +16,7 @@ The installation script will guide you through:
 0. ✅ Xcode Command Line Tools (required for development)
 1. ✅ Homebrew installation
 2. ✅ Homebrew packages (dev tools, CLI utilities)
+2b. ✅ Python 3.11 toolchain for Node native builds
 3. ✅ Homebrew casks (applications)
 4. ✅ Mac App Store apps (via `mas`)
 5. ✅ iTerm2 and Zsh configuration (with Oh My Zsh, Starship)
@@ -30,7 +31,7 @@ The script is interactive and will prompt you before each step.
 ## 📦 What's Included
 
 ### Development Tools
-- **Languages & Runtimes**: Node.js (via nvm), Python
+ **Languages & Runtimes**: Node.js (via nvm), Python 3.11 (Homebrew, tuned for native Node modules)
 - **Version Control**: Git with custom aliases and diff-so-fancy
 - **Package Managers**: pnpm, npm
 - **CLI Tools**: bat, eza, fzf, ripgrep, fd, jq, yq, httpie, tldr
@@ -80,6 +81,9 @@ If you prefer to run scripts individually:
 
 # 9. Setup SSH configuration
 ./ssh/setup.sh
+ 
+# (Optional) Configure Python for Node native modules
+./python/setup.sh
 ```
 
 ## 🛠️ Maintenance Scripts

@@ -18,6 +18,7 @@ dependecies=(
 	fd
 	fzf
 	git
+	gnupg
 	gsed
 	httpie
 	imagemagick
@@ -28,10 +29,11 @@ dependecies=(
 	nvm
 	openssl
 	pango
+	python@3.11
 	pkg-config
 	pnpm@8
 	ripgrep
-	svgo
+	# svgo disabled due to issues with node version
 	tldr
 	tree
 	wget
