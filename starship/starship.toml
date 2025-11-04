@@ -40,15 +40,15 @@ truncation_length = 3
 truncate_to_repo = true
 format = "in [$path]($style)[$read_only]($read_only_style) "
 style = "bold cyan"
-read_only = " 🔒"
+read_only = " 󰌾"
 read_only_style = "red"
 truncation_symbol = "…/"
 
 [directory.substitutions]
 "Documents" = "󰈙 "
 "Downloads" = " "
-"Music" = " "
-"Pictures" = " "
+"Music" = "󰝚 "
+"Pictures" = "󰉏 "
 "Desktop" = "󰚝 "
 
 [git_branch]
@@ -61,14 +61,14 @@ truncation_symbol = "…"
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
 style = "bold red"
-conflicted = "⚔️ "
+conflicted = "="
 ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
 untracked = "?${count}"
-stashed = "📦"
+stashed = "$"
 modified = "!${count}"
-staged = "+${count}"
+staged = "[●](green)"
 renamed = "»${count}"
 deleted = "✘${count}"
 
@@ -78,7 +78,7 @@ style = "bright-black"
 
 [git_commit]
 commit_hash_length = 7
-tag_symbol = "🏷 "
+tag_symbol = " "
 tag_disabled = false
 
 [nodejs]
@@ -121,7 +121,7 @@ utc_time_offset = "local"
 
 # Package version
 [package]
-symbol = "📦 "
+symbol = "󰏗 "
 format = "is [$symbol$version]($style) "
 style = "208 bold"
 display_private = false
@@ -129,9 +129,9 @@ disabled = true
 
 # Battery (for laptops)
 [battery]
-full_symbol = "🔋"
-charging_symbol = "⚡"
-discharging_symbol = "💀"
+full_symbol = "󰂄 "
+charging_symbol = "󰂄 "
+discharging_symbol = "󰂃 "
 disabled = false
 
 [[battery.display]]
@@ -148,7 +148,7 @@ disabled = true
 threshold = 75
 format = "via $symbol [${ram}( | ${swap})]($style) "
 style = "bold dimmed white"
-symbol = "🐏"
+symbol = "󰍛 "
 
 # Line break
 [line_break]
